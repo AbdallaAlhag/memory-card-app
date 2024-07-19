@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid function
 import Card from "./components/Card";
-import ScoreBoard from './components/ScoreBoard';
+import ScoreBoard from "./components/ScoreBoard";
 import "./App.css";
 
 function App() {
   const [deck, setDeck] = useState(generateInitialDeck());
   const [gameOver, setGameOver] = useState(false);
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(0);
 
   function generateInitialDeck() {
     const cards = [];
@@ -40,24 +40,23 @@ function App() {
   function handleCardClick(isClicked) {
     if (isClicked === true) {
       setGameOver(true);
-      console.log('game over');
+      console.log("game over");
     } else {
-      setScore(score+1)
+      setScore(score + 1);
       shuffleDeck();
     }
   }
 
   useEffect(() => {
     if (gameOver) {
-      console.log('Game Over! Resetting...');
+      console.log("Game Over! Resetting...");
       setDeck(generateInitialDeck());
       setGameOver(false);
       setScore(0);
     }
   }, [gameOver]);
 
-
-
+  console.log(deck)
   return (
     <div className="container">
       <header className="header-container">
@@ -74,7 +73,7 @@ function App() {
       </header>
       <div className="game-container">
         {deck.map((card) => (
-          <Card key={card.id} content={card.value} onClick={handleCardClick}/>
+          <Card key={card.id} content={card.value} onClick={handleCardClick} />
         ))}
       </div>
     </div>
