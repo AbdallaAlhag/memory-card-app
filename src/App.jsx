@@ -1,12 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
-import "./App.css";
-import Card from "./components/Card";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid function
+import Card from "./components/Card";
+import ScoreBoard from './components/ScoreBoard';
+import "./App.css";
 
 function App() {
   const [deck, setDeck] = useState(generateInitialDeck());
   const [gameOver, setGameOver] = useState(false);
+  const [score, setScore] = useState(0)
 
   function generateInitialDeck() {
     const cards = [];
@@ -40,6 +42,7 @@ function App() {
       setGameOver(true);
       console.log('game over');
     } else {
+      setScore(score+1)
       shuffleDeck();
     }
   }
@@ -49,12 +52,15 @@ function App() {
       console.log('Game Over! Resetting...');
       setDeck(generateInitialDeck());
       setGameOver(false);
+      setScore(0);
     }
   }, [gameOver]);
 
+
+
   return (
     <div className="container">
-      <header>
+      <header className="header-container">
         <div>
           <h1>Memory Game</h1>
           <p>
@@ -62,7 +68,9 @@ function App() {
             once!
           </p>
         </div>
-        {/* Score */}
+        <div className="Score-container">
+          <ScoreBoard points={score}></ScoreBoard>
+        </div>
       </header>
       <div className="game-container">
         {deck.map((card) => (
