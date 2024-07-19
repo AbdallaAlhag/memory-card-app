@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid"; // Import the uuid function
 
 function App() {
   const [deck, setDeck] = useState(generateInitialDeck());
+  const [gameOver, setGameOver] = useState(false);
 
   function generateInitialDeck() {
     const cards = [];
@@ -34,15 +35,22 @@ function App() {
     setDeck(shuffledDeck);
   }
 
-  // Handle card click
-  function handleCardClick() {
-    shuffleDeck(); // Shuffle the deck when a card is clicked
+  function handleCardClick(isClicked) {
+    if (isClicked === true) {
+      setGameOver(true);
+      console.log('game over');
+    } else {
+      shuffleDeck();
+    }
   }
 
   useEffect(() => {
-    // This runs when the deck changes
-    console.log("Deck has changed:", deck);
-  }, [deck]); // Dependency array contains `deck`
+    if (gameOver) {
+      console.log('Game Over! Resetting...');
+      setDeck(generateInitialDeck());
+      setGameOver(false);
+    }
+  }, [gameOver]);
 
   return (
     <div className="container">
@@ -58,7 +66,7 @@ function App() {
       </header>
       <div className="game-container">
         {deck.map((card) => (
-          <Card key={card.id} content={card.value} onClick={handleCardClick} />
+          <Card key={card.id} content={card.value} onClick={handleCardClick}/>
         ))}
       </div>
     </div>
