@@ -1,19 +1,74 @@
-.container{
+@font-face {
+  font-family: "BeaufortforLOL-Bold";
+  src: url("../assets/fonts/BeaufortforLOL-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SpiegelSans-Regular";
+  src: url("../assets/fonts/SpiegelSans-5Regular_TRIAL.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "SpiegelSans-Regular", sans-serif;
+  color: white;
+  /* background-color: aliceblue; */
+  background: url("src/assets/2leagueBackground.jpeg") no-repeat center center
+    fixed;
+  background-size: cover;
+}
+
+h1,
+h3 {
+  font-family: "BeaufortforLOL-Bold", sans-serif;
+  font-weight: bold;
+}
+h1 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 23px;
+}
+p {
+  font-family: "SpiegelSans-Regular", sans-serif;
+  font-size: 14px;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
+  height: 100vh;
 }
-.game-container{
+.game-container {
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 25px;
   max-width: 1750px;
 }
 
-.header-container{
+.header-container {
   display: flex;
   justify-content: space-between;
   margin: 0 5%;
+  text-shadow: 1px 1px 0 #c89b3c, -1px -1px 0 #c89b3c, 1px -1px 0 #c89b3c,
+    -1px 1px 0 #c89b3c; /* Adjust these values to get a thicker or thinner border */
+}
+
+.header-container img {
+  height: 40px;
+  width: auto;
+}
+
+.title {
+  display: flex;
+  align-items: center;
 }

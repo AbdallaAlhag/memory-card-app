@@ -72,11 +72,14 @@ function App() {
     <div className="container">
       <header className="header-container">
         <div>
-          <h1>Memory Game</h1>
-          <p>
+          <div className="title">
+            <img src="src\assets\leagueLogo.png" alt="Leauge of legends Logo" />
+            <h1>Memory Game</h1>
+          </div>
+          <h3>
             Get points by clicking on an image but don't click on any more than
             once!
-          </p>
+          </h3>
         </div>
         <div className="Score-container">
           <ScoreBoard points={score}></ScoreBoard>

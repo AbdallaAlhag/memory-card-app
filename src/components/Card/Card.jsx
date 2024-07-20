@@ -109,7 +109,6 @@ const Card = ({ content, onClick }) => {
   
   return (
     <button className="card" onClick={handleClick}>
-      {content}
       <img
         src={
           currentChampion && currentChampion.id

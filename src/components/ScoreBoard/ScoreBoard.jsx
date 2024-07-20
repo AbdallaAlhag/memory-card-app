@@ -50,8 +50,8 @@ const ScoreBoard = ({ points }) => {
 
   return (
     <>
-      <p>Score: {points}</p>
-      <p>High-Score: {state.highScore || 0}</p>
+      <h3>Score: {points}</h3>
+      <h3>High-Score: {state.highScore || 0}</h3>
     </>
   );
 };
