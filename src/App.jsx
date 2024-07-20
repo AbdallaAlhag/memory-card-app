@@ -5,6 +5,10 @@ import Card from "./components/Card";
 import ScoreBoard from "./components/ScoreBoard";
 import "./App.css";
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function App() {
   const [deck, setDeck] = useState(generateInitialDeck());
   const [gameOver, setGameOver] = useState(false);
@@ -12,9 +16,16 @@ function App() {
 
   function generateInitialDeck() {
     const cards = [];
-    for (let i = 0; i < 10; i++) {
+    const seen = new Set();
+    let randomNumber;
+
+    // I'm pretty sure there are 159 characters in the champions array
+    for (let i = 0; i < 5; i++) {
+      do {
+        randomNumber = getRandomInt(159);
+      } while (seen.has(randomNumber));
       // cards.push(<Card key={uuidv4()} onClick={handleClick} />);
-      cards.push({ id: uuidv4(), value: i }); // Example card object
+      cards.push({ id: uuidv4(), value: randomNumber }); // Example card object
     }
     return cards;
   }
@@ -56,7 +67,7 @@ function App() {
     }
   }, [gameOver]);
 
-  console.log(deck)
+  console.log(deck);
   return (
     <div className="container">
       <header className="header-container">
