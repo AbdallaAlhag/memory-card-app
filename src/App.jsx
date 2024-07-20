@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid function
 import Card from "./components/Card";
 import ScoreBoard from "./components/ScoreBoard";
+import VideoBackground from "./components/VideoBackground";
 import "./App.css";
 
 function getRandomInt(max) {
@@ -70,25 +71,28 @@ function App() {
   console.log(deck);
   return (
     <div className="container">
-      <header className="header-container">
-        <div>
-          <div className="title">
-            <img src="src\assets\leagueLogo.png" alt="Leauge of legends Logo" />
-            <h1>Memory Game</h1>
+      <VideoBackground />
+      <div className="content">
+        <header className="header-container">
+          <div>
+            <div className="title">
+              <img src="src\assets\leagueLogo.png" alt="Leauge of legends Logo" />
+              <h1>Memory Game</h1>
+            </div>
+            <h3>
+              Get points by clicking on an image but don't click on any more than
+              once!
+            </h3>
           </div>
-          <h3>
-            Get points by clicking on an image but don't click on any more than
-            once!
-          </h3>
+          <div className="Score-container">
+            <ScoreBoard points={score}></ScoreBoard>
+          </div>
+        </header>
+        <div className="game-container">
+          {deck.map((card) => (
+            <Card key={card.id} content={card.value} onClick={handleCardClick} />
+          ))}
         </div>
-        <div className="Score-container">
-          <ScoreBoard points={score}></ScoreBoard>
-        </div>
-      </header>
-      <div className="game-container">
-        {deck.map((card) => (
-          <Card key={card.id} content={card.value} onClick={handleCardClick} />
-        ))}
       </div>
     </div>
   );

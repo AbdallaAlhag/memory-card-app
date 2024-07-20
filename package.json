@@ -10,11 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fightmegg/riot-api": "^0.0.20",
     "axios": "^1.7.2",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-parallax-tilt": "^1.7.232",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

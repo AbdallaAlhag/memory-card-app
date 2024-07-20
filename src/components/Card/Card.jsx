@@ -5,6 +5,7 @@ import { useState } from "react";
 // import championData from "./champion.json";
 import _ from "lodash";
 import "./Card.css";
+import Tilt from "react-parallax-tilt";
 
 // const Card = ({ content, onClick }) => {
 //   const [isClicked, setIsClicked] = useState(false);
@@ -54,11 +55,9 @@ import "./Card.css";
 //   );
 // };
 
-
 // src={`https://ddragon.leagueoflegends.com/cdn/12.10.1/img/champion/${champions}`}
 
-
-// API method but using 
+// API method but using
 import axios from "axios";
 import { useEffect } from "react";
 
@@ -66,8 +65,8 @@ const Card = ({ content, onClick }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [champions, setChampions] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState()
-  
+  const [error, setError] = useState();
+
   useEffect(() => {
     const fetchChampions = async () => {
       setIsLoading(true);
@@ -80,47 +79,49 @@ const Card = ({ content, onClick }) => {
         setChampions(Object.values(shuffledChampsData));
       } catch (error) {
         console.error("Error fetching champions:", error);
-        setError(error)
+        setError(error);
       } finally {
         setIsLoading(false);
       }
     };
     fetchChampions();
   }, []);
-  
+
   const handleClick = () => {
     onClick(isClicked);
     setIsClicked(true);
   };
-  
+
   // Ensure content is a valid index
   const currentChampion =
-  Array.isArray(champions) && champions[content]
-  ? champions[content]
-  : null;
-  
-  if(isLoading){
-    return <div>Loading...</div>
+    Array.isArray(champions) && champions[content] ? champions[content] : null;
+
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
-  
-  if (error){
-    return <div>Something went wrong. Please try again</div>
+
+  if (error) {
+    return <div>Something went wrong. Please try again</div>;
   }
-  
+
   return (
-    <button className="card" onClick={handleClick}>
-      <img
-        src={
-          currentChampion && currentChampion.id
-          ? `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${currentChampion.id}_0.jpg`
-          : ""
-        }
-        alt={currentChampion ? currentChampion.id : "Champion"}
-        width="100"
-        loading="lazy"
+    <Tilt>
+      <button className="card" onClick={handleClick}>
+        <img
+          className="card-img"
+          src={
+            currentChampion && currentChampion.id
+              ? `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${currentChampion.id}_0.jpg`
+              : ""
+          }
+          alt={currentChampion ? currentChampion.id : "Champion"}
+          width="100"
+          loading="lazy"
         />
-      <p>{currentChampion ? currentChampion.id : "ID not available"}</p>
-    </button>
+        <p>{currentChampion ? currentChampion.id : "ID not available"}</p>
+        <img className="border" src="src\assets\leagueBorder.png" alt="league of legends border" />
+      </button>
+    </Tilt>
   );
 };
 

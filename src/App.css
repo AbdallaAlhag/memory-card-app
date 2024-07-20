@@ -13,13 +13,14 @@
 }
 
 body {
+
   margin: 0;
   font-family: "SpiegelSans-Regular", sans-serif;
   color: white;
   /* background-color: aliceblue; */
-  background: url("src/assets/2leagueBackground.jpeg") no-repeat center center
+  /* background: url("src/assets/3leagueBackground.mp4") no-repeat center center
     fixed;
-  background-size: cover;
+  background-size: cover; */
 }
 
 h1,
@@ -42,8 +43,20 @@ p {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  height: 100vh;
+
+
+  position: relative;
+  min-height: 100vh;
 }
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensure this is above the video */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
 .game-container {
   height: 100%;
   margin: 0 auto;
