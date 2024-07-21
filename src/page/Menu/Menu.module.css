@@ -1,36 +1,61 @@
 /* src/pages/Menu.module.css */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .container {
-    padding: 20px;
-    text-align: center;
-    background-color: #f4f4f4; /* Light gray background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-  }
-  
-  .title {
-    font-size: 2rem;
-    color: #333; /* Dark gray text */
-    margin-bottom: 20px;
-  }
-  
-  .list {
-    list-style: none; /* Remove default list styling */
-    padding: 0;
-  }
-  
-  .listItem {
-    margin: 10px 0;
-  }
-  
-  .link {
-    text-decoration: none; /* Remove underline */
-    color: #007bff; /* Bootstrap primary blue */
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .link:hover {
-    text-decoration: underline; /* Add underline on hover */
-  }
-  
+  text-align: center;
+  /* background-color: #f4f4f4; Light gray background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+
+  position: relative;
+  min-height: 100vh;
+}
+.content {
+  position: relative;
+  z-index: 1; /* Ensure this is above the video */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title {
+  height: 50%;
+}
+.title h1 {
+  font-family: "BeaufortforLOL-Bold", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #c89b3c, -1px -1px 0 #c89b3c, 1px -1px 0 #c89b3c,
+    -1px 1px 0 #c89b3c;
+}
+.title img {
+  height: 75%;
+}
+.list {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+}
+
+.listItem {
+  margin: 10px 0;
+}
+
+.link {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Bootstrap primary blue */
+  font-size: 2.2rem;
+  font-weight: bold;
+  border: 2px solid #c89b3c;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}

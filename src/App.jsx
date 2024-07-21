@@ -2,9 +2,11 @@
 // App Stores our game logic
 import { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid function
+// import { Link } from "react-router-dom";
 import Card from "./components/Card";
 import ScoreBoard from "./components/ScoreBoard";
 import VideoBackground from "./components/VideoBackground";
+import Modal from "./components/Modal";
 import "./App.css";
 
 function getRandomInt(max) {
@@ -15,10 +17,14 @@ function App() {
   const [deck, setDeck] = useState(generateInitialDeck());
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const cardRefs = useRef([]);
 
   // Ensure cardRefs.current is an array
   cardRefs.current = [];
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   function generateInitialDeck() {
     const cards = [];
@@ -57,6 +63,7 @@ function App() {
   function handleCardClick(isClicked) {
     if (isClicked === true) {
       setGameOver(true);
+      openModal();
       console.log("game over");
     } else {
       setScore(score + 1);
@@ -66,15 +73,14 @@ function App() {
 
   const flipHalfwayAndShuffle = async () => {
     // Flip all cards halfway
-    await Promise.all(cardRefs.current.map(ref => ref.flipHalfway()));
-    
+    await Promise.all(cardRefs.current.map((ref) => ref.flipHalfway()));
+
     // Shuffle the deck
     shuffleDeck();
 
     // Flip all cards back
-    await Promise.all(cardRefs.current.map(ref => ref.flipBack()));
+    await Promise.all(cardRefs.current.map((ref) => ref.flipBack()));
   };
-
 
   useEffect(() => {
     if (gameOver) {
@@ -88,7 +94,7 @@ function App() {
   console.log(deck);
   return (
     <div className="container">
-      <VideoBackground link='src/assets/background/3leagueBackground.mp4'/>
+      <VideoBackground link="src/assets/background/zaun-arcane-desktop-wallpaperwaifu-com.mp4" />
       <div className="content">
         <header className="header-container">
           <div>
@@ -119,6 +125,14 @@ function App() {
           ))}
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <button onClick={closeModal}>
+          <img
+            src="src/assets/leagueVictoryButton.png"
+            alt="League defeat screen continue button"
+          />
+        </button>
+      </Modal>
     </div>
   );
 }
