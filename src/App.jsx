@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid function
 import Card from "./components/Card";
 import ScoreBoard from "./components/ScoreBoard";
@@ -14,6 +14,10 @@ function App() {
   const [deck, setDeck] = useState(generateInitialDeck());
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const cardRefs = useRef([]);
+
+  // Ensure cardRefs.current is an array
+  cardRefs.current = [];
 
   function generateInitialDeck() {
     const cards = [];
@@ -55,9 +59,21 @@ function App() {
       console.log("game over");
     } else {
       setScore(score + 1);
-      shuffleDeck();
+      flipHalfwayAndShuffle();
     }
   }
+
+  const flipHalfwayAndShuffle = async () => {
+    // Flip all cards halfway
+    await Promise.all(cardRefs.current.map(ref => ref.flipHalfway()));
+    
+    // Shuffle the deck
+    shuffleDeck();
+
+    // Flip all cards back
+    await Promise.all(cardRefs.current.map(ref => ref.flipBack()));
+  };
+
 
   useEffect(() => {
     if (gameOver) {
@@ -76,12 +92,15 @@ function App() {
         <header className="header-container">
           <div>
             <div className="title">
-              <img src="src\assets\leagueLogo.png" alt="Leauge of legends Logo" />
+              <img
+                src="src\assets\leagueLogo.png"
+                alt="Leauge of legends Logo"
+              />
               <h1>Memory Game</h1>
             </div>
             <h3>
-              Get points by clicking on an image but don't click on any more than
-              once!
+              Get points by clicking on an image but don't click on any more
+              than once!
             </h3>
           </div>
           <div className="Score-container">
@@ -89,8 +108,13 @@ function App() {
           </div>
         </header>
         <div className="game-container">
-          {deck.map((card) => (
-            <Card key={card.id} content={card.value} onClick={handleCardClick} />
+          {deck.map((card, index) => (
+            <Card
+              key={card.id}
+              ref={(ref) => (cardRefs.current[index] = ref)}
+              content={card.value}
+              onClick={handleCardClick}
+            />
           ))}
         </div>
       </div>
