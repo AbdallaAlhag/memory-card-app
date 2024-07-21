@@ -9,12 +9,14 @@ Currently, two official plugins are available:
 
 
 Dependencies: 
+    "@fightmegg/riot-api": "^0.0.20",
     "axios": "^1.7.2",
     "framer-motion": "^11.3.8",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-parallax-tilt": "^1.7.232",
+    "react-router-dom": "^6.25.1",
     "uuid": "^10.0.0"
 
 live assets: 

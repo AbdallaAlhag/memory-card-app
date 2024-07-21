@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+// App Stores our game logic
 import { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid function
 import Card from "./components/Card";
@@ -87,14 +88,14 @@ function App() {
   console.log(deck);
   return (
     <div className="container">
-      <VideoBackground />
+      <VideoBackground link='src/assets/background/3leagueBackground.mp4'/>
       <div className="content">
         <header className="header-container">
           <div>
             <div className="title">
               <img
                 src="src\assets\leagueLogo.png"
-                alt="Leauge of legends Logo"
+                alt="league of legends Logo"
               />
               <h1>Memory Game</h1>
             </div>

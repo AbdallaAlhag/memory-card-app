@@ -1,0 +1,36 @@
+/* src/pages/Menu.module.css */
+
+.container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: #333; /* Dark gray text */
+    margin-bottom: 20px;
+  }
+  
+  .list {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+  }
+  
+  .listItem {
+    margin: 10px 0;
+  }
+  
+  .link {
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Bootstrap primary blue */
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .link:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
