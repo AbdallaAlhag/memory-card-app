@@ -6,6 +6,7 @@ import { useState } from "react";
 import _ from "lodash";
 import "./Card.css";
 import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 
 // const Card = ({ content, onClick }) => {
 //   const [isClicked, setIsClicked] = useState(false);
@@ -67,6 +68,12 @@ const Card = ({ content, onClick }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   useEffect(() => {
     const fetchChampions = async () => {
       setIsLoading(true);
@@ -106,21 +113,36 @@ const Card = ({ content, onClick }) => {
 
   return (
     <Tilt>
-      <button className="card" onClick={handleClick}>
-        <img
-          className="card-img"
-          src={
-            currentChampion && currentChampion.id
-              ? `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${currentChampion.id}_0.jpg`
-              : ""
-          }
-          alt={currentChampion ? currentChampion.id : "Champion"}
-          width="100"
-          loading="lazy"
-        />
-        <p>{currentChampion ? currentChampion.id : "ID not available"}</p>
-        <img className="border" src="src\assets\leagueBorder.png" alt="league of legends border" />
-      </button>
+      <div className="card-container" onClick={handleFlip}>
+        <motion.div
+          className="card-flip"
+          animate={{ rotateY: isFlipped ? 360 : 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="card-front">
+            <button className="card-button" onClick={handleClick}>
+              <img
+                className="card-button-img"
+                src={
+                  currentChampion && currentChampion.id
+                    ? `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${currentChampion.id}_0.jpg`
+                    : ""
+                }
+                alt={currentChampion ? currentChampion.id : "Champion"}
+                width="100"
+                loading="lazy"
+              />
+              <p>{currentChampion ? currentChampion.id : "ID not available"}</p>
+              <img
+                className="border"
+                src="src\assets\leagueBorder.png"
+                alt="league of legends border"
+              />
+            </button>
+          </div>
+          <div className="card-back"></div>
+        </motion.div>
+      </div>
     </Tilt>
   );
 };

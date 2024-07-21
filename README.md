@@ -10,6 +10,7 @@ Currently, two official plugins are available:
 
 Dependencies: 
     "axios": "^1.7.2",
+    "framer-motion": "^11.3.8",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
