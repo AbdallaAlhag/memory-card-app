@@ -95,6 +95,7 @@ const Card = ({ content, onClick }) => {
   }, []);
 
   const handleClick = () => {
+    handleFlip()
     onClick(isClicked);
     setIsClicked(true);
   };
@@ -113,11 +114,12 @@ const Card = ({ content, onClick }) => {
 
   return (
     <Tilt>
-      <div className="card-container" onClick={handleFlip}>
+      {/* <div className="card-container" onClick={handleFlip}> */}
+      <div className="card-container">
         <motion.div
           className="card-flip"
           animate={{ rotateY: isFlipped ? 360 : 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 3 }}
         >
           <div className="card-front">
             <button className="card-button" onClick={handleClick}>
