@@ -1,6 +1,6 @@
 .card {
-  height: 236px;
-  width: 135px;
+  height: 350px;
+  width: 200px;
   padding: 0;
   border: none;
   background-color: transparent;
@@ -14,7 +14,7 @@
 .card .card-img {
   box-sizing: border-box;
   height: auto;
-  width: 125px;
+  width: 190px;
 }
 
 /* .card:hover {
@@ -30,7 +30,7 @@
 
 .card .border{
   position: absolute;
-  height: 270px;
-  bottom: -10px;
-  left: -20px;
+  height: 410px;
+  bottom: -20px;
+  left: -33px;
 }
