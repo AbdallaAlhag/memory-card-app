@@ -35,3 +35,8 @@ fonts:
 api:
 - https://developer.riotgames.com/apis#account-v1
 - https://developer.riotgames.com/docs/lol
+
+references:
+- https://alex-dishen.github.io/memory-card/
+- https://memory-card-game-silk-rho.vercel.app/
+- https://memory-cards.pages.dev/ 

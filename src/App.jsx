@@ -7,7 +7,8 @@ import Card from "./components/Card";
 import ScoreBoard from "./components/ScoreBoard";
 import VideoBackground from "./components/VideoBackground";
 import Modal from "./components/Modal";
-// import AudioPlayer from "./components/AudioPlayer";
+import useSoundEffect from "./components/SoundEffect";
+import AudioPlayer from "./components/AudioPlayer";
 import "./App.css";
 
 function getRandomInt(max) {
@@ -61,13 +62,24 @@ function App() {
     setDeck(shuffledDeck);
   }
 
+  const playCardFlipSoundEffect = useSoundEffect(
+    "src/assets/Audio/flipcard-91468.mp3"
+  );
+  const playDefeatSoundEffect = useSoundEffect(
+    "src/assets/Audio/Defeat (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
+  );
+
   function handleCardClick(isClicked) {
-    console.log(isClicked);
     if (isClicked === true) {
       openModal();
+      setTimeout(() => {
+        playDefeatSoundEffect();
+      }, 250);
+
       setGameOver(true);
     } else {
       setScore(score + 1);
+      playCardFlipSoundEffect();
       flipHalfwayAndShuffle();
     }
   }
@@ -85,7 +97,6 @@ function App() {
 
   useEffect(() => {
     if (gameOver) {
-      console.log("Game Over! Resetting...");
       setDeck(generateInitialDeck());
       setGameOver(false);
       setScore(0);
@@ -129,10 +140,10 @@ function App() {
         </div>
       </div>
       <div className="footer-container">
-        {/* <AudioPlayer
+        <AudioPlayer
           src="src\assets\Audio\Updated Summoner's Rift - Complete Soundtrack.mp3"
           loop={true}
-        /> */}
+        />
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <button onClick={closeModal}>
