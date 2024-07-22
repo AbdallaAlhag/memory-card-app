@@ -67,14 +67,14 @@ function App() {
   }
 
   const playCardFlipSoundEffect = useSoundEffect(
-    "/assets/Audio/flipcard-91468.mp3"
+    "src/assets/Audio/flipcard-91468.mp3"
   );
   const playDefeatSoundEffect = useSoundEffect(
-    "/assets/Audio/Defeat (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
+    "src/assets/Audio/Defeat (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
   );
 
   const playVictorySoundEffect = useSoundEffect(
-    "/assets/Audio/Victory! (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
+    "src/assets/Audio/Victory! (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
   );
 
   function handleCardClick(isClicked) {
@@ -86,15 +86,14 @@ function App() {
       }, 250);
 
       setGameOver(true);
-    } else if(score === 4){
+    } else if (score === 4) {
       // Winner
       openVictoryModal();
       setTimeout(() => {
         playVictorySoundEffect();
       }, 250);
       setGameOver(true);
-    }
-     else {
+    } else {
       setScore(score + 1);
       playCardFlipSoundEffect();
       flipHalfwayAndShuffle();
@@ -123,14 +122,14 @@ function App() {
   console.log(deck);
   return (
     <div className="container">
-      <VideoBackground link="/assets/background/zaun-arcane-desktop-wallpaperwaifu-com.mp4" />
+      <VideoBackground link="src/assets/background/zaun-arcane-desktop-wallpaperwaifu-com.mp4" />
       <div className="content">
         <header className="header-container">
           <div>
             <div className="title">
               <Link to="/">
                 <img
-                  src="/assets/img/leagueLogo.png"
+                  src="src/assets/img/leagueLogo.png"
                   alt="league of legends Logo"
                 />
               </Link>
@@ -158,22 +157,30 @@ function App() {
       </div>
       <div className="footer-container">
         <AudioPlayer
-          src="/assets/Audio/Updated Summoner's Rift - Complete Soundtrack.mp3"
+          src="src/assets/Audio/Updated Summoner's Rift - Complete Soundtrack.mp3"
           loop={true}
         />
       </div>
-      <Modal isOpen={isDefeatModalOpen} onClose={closeDefeatModal} className={'defeat'}>
+      <Modal
+        isOpen={isDefeatModalOpen}
+        onClose={closeDefeatModal}
+        className={"defeat"}
+      >
         <button onClick={closeDefeatModal}>
           <img
-            src="/assets/img/leagueVictoryButton.png"
+            src="src/assets/img/leagueVictoryButton.png"
             alt="League defeat screen continue button"
           />
         </button>
       </Modal>
-      <Modal isOpen={isVictoryModalOpen} onClose={closeVictoryModal} className={'victory'}>
+      <Modal
+        isOpen={isVictoryModalOpen}
+        onClose={closeVictoryModal}
+        className={"victory"}
+      >
         <button onClick={closeVictoryModal}>
           <img
-            src="/assets/img/leagueVictoryButton.png"
+            src="src/assets/img/leagueVictoryButton.png"
             alt="League defeat screen continue button"
           />
         </button>

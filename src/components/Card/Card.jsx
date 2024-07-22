@@ -99,7 +99,7 @@ const Card = forwardRef((props, ref) => {
               <p>{currentChampion ? currentChampion.id : "ID not available"}</p>
               <img
                 className="border"
-                src="/assets/img/leagueBorder.png"
+                src="src/assets/img/leagueBorder.png"
                 alt="league of legends border"
                 />
             </button>

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const Menu = () => {
   return (
     <div className={styles.container}>
-      <VideoBackground link="/assets/background/project-hunters-league-of-legends-moewalls-com.mp4" />
+      <VideoBackground link="src/assets/background/project-hunters-league-of-legends-moewalls-com.mp4" />
       <div className={styles.content}>
         <div className={styles.title}>
           <motion.div
@@ -17,7 +17,7 @@ const Menu = () => {
             transition={{ duration: 1 }}
           >
             <img
-              src="/assets/img/lol-logo-rendered-hi-res.png"
+              src="src/assets/img/lol-logo-rendered-hi-res.png"
               alt="league of legends main logo"
             />
           </motion.div>
@@ -52,7 +52,7 @@ const Menu = () => {
             transition={{ duration: 1, delay: 1.5 }}
           >
             <AudioPlayer
-              src="/assets/Audio/Ignite (ft. Zedd)  Worlds 2016 - League of Legends.mp3"
+              src="src/assets/Audio/Ignite (ft. Zedd)  Worlds 2016 - League of Legends.mp3"
               loop={true}
             />
           </motion.button>
