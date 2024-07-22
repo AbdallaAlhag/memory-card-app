@@ -20,7 +20,6 @@ Dependencies:
     "uuid": "^10.0.0"
 
 live assets: 
-- https://www.desktophut.com/arcane-jinx-over-piltover-video-wallpaper (current)
 - https://wallpaperwaifu.com/movies-tv/zaun-arcane-live-wallpaper/ (maybe current)
 - https://wallpaperwaifu.com/games/league-of-legends-bilgewater-live-wallpaper/ 
 - https://www.desktophut.com/LoL-Ashe-Archer-Live-Wallpaper

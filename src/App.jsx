@@ -2,11 +2,12 @@
 // App Stores our game logic
 import { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid function
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "./components/Card";
 import ScoreBoard from "./components/ScoreBoard";
 import VideoBackground from "./components/VideoBackground";
 import Modal from "./components/Modal";
+import AudioPlayer from "./components/AudioPlayer";
 import "./App.css";
 
 function getRandomInt(max) {
@@ -61,10 +62,10 @@ function App() {
   }
 
   function handleCardClick(isClicked) {
+    console.log(isClicked);
     if (isClicked === true) {
-      setGameOver(true);
       openModal();
-      console.log("game over");
+      setGameOver(true);
     } else {
       setScore(score + 1);
       flipHalfwayAndShuffle();
@@ -99,10 +100,12 @@ function App() {
         <header className="header-container">
           <div>
             <div className="title">
-              <img
-                src="src\assets\leagueLogo.png"
-                alt="league of legends Logo"
-              />
+              <Link to="/">
+                <img
+                  src="src\assets\img\leagueLogo.png"
+                  alt="league of legends Logo"
+                />
+              </Link>
               <h1>Memory Game</h1>
             </div>
             <h3>
@@ -124,6 +127,12 @@ function App() {
             />
           ))}
         </div>
+      </div>
+      <div className="footer-container">
+        <AudioPlayer
+          src="src\assets\Audio\Updated Summoner's Rift - Complete Soundtrack.mp3"
+          loop={true}
+        />
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <button onClick={closeModal}>
