@@ -67,14 +67,14 @@ function App() {
   }
 
   const playCardFlipSoundEffect = useSoundEffect(
-    "src/assets/Audio/flipcard-91468.mp3"
+    "/assets/Audio/flipcard-91468.mp3"
   );
   const playDefeatSoundEffect = useSoundEffect(
-    "src/assets/Audio/Defeat (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
+    "/assets/Audio/Defeat (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
   );
 
   const playVictorySoundEffect = useSoundEffect(
-    "src/assets/Audio/Victory! (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
+    "/assets/Audio/Victory! (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
   );
 
   function handleCardClick(isClicked) {
@@ -123,14 +123,14 @@ function App() {
   console.log(deck);
   return (
     <div className="container">
-      <VideoBackground link="src/assets/background/zaun-arcane-desktop-wallpaperwaifu-com.mp4" />
+      <VideoBackground link="/assets/background/zaun-arcane-desktop-wallpaperwaifu-com.mp4" />
       <div className="content">
         <header className="header-container">
           <div>
             <div className="title">
               <Link to="/">
                 <img
-                  src="src\assets\img\leagueLogo.png"
+                  src="/assets/img/leagueLogo.png"
                   alt="league of legends Logo"
                 />
               </Link>
@@ -158,14 +158,14 @@ function App() {
       </div>
       <div className="footer-container">
         <AudioPlayer
-          src="src\assets\Audio\Updated Summoner's Rift - Complete Soundtrack.mp3"
+          src="/assets/Audio/Updated Summoner's Rift - Complete Soundtrack.mp3"
           loop={true}
         />
       </div>
       <Modal isOpen={isDefeatModalOpen} onClose={closeDefeatModal} className={'defeat'}>
         <button onClick={closeDefeatModal}>
           <img
-            src="src/assets/img/leagueVictoryButton.png"
+            src="/assets/img/leagueVictoryButton.png"
             alt="League defeat screen continue button"
           />
         </button>
@@ -173,7 +173,7 @@ function App() {
       <Modal isOpen={isVictoryModalOpen} onClose={closeVictoryModal} className={'victory'}>
         <button onClick={closeVictoryModal}>
           <img
-            src="src/assets/img/leagueVictoryButton.png"
+            src="/assets/img/leagueVictoryButton.png"
             alt="League defeat screen continue button"
           />
         </button>
