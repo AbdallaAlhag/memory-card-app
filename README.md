@@ -40,3 +40,7 @@ references:
 - https://alex-dishen.github.io/memory-card/
 - https://memory-card-game-silk-rho.vercel.app/
 - https://memory-cards.pages.dev/ 
+
+Future Possible Features~
+- Loading page, work on loading components smoother
+- difficulty (easy, med, hard -> 5, 10, 15 cards)and swap out cards instead of the same x amount like maybe swap out 2 for 2 new ones but keep those swapped out ones with their states
