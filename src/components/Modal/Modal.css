@@ -12,10 +12,8 @@
   z-index: 1000; /* Make sure the modal is above other content */
 }
 
-/* Modal content */
-.modal-content {
+/* .modal-content{
   color: black;
-  background: url("src/assets/img/defeat.gif") no-repeat;
   background-size: contain;
   padding: 20px;
   border: 2px solid black;
@@ -24,8 +22,35 @@
   width: 498px;
   max-width: 90%;
   position: relative;
+} */
+
+/* Modal content */
+.modal-content.defeat {
+  color: black;
+  background: url("src/assets/img/defeat.gif") no-repeat;
+  background-size: contain;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 368px;
+  width: 640px;
+  max-width: 90%;
+  position: relative;
 }
 
+.modal-content.victory {
+  color: black;
+  background: url("src/assets/img/Victory-ezgif.com-webp-to-gif-converter.gif")
+    no-repeat;
+  background-size: fill;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 338px;
+  width: 650px;
+  max-width: 90%;
+  position: relative;
+}
 /* Close button */
 /* .modal-close {
   position: absolute;
@@ -37,17 +62,26 @@
   cursor: pointer;
 } */
 
-.modal-content button{
+.modal-content.victory button {
   background: transparent;
   border: none;
   position: relative;
-  top: 140px;
-  left: 130px;
+  top: 200px;
+  left: 245px;
   cursor: pointer;
 }
 
-.modal-content button:hover{
-  animation: pop .5s ease-in-out;
+.modal-content.defeat button {
+  background: transparent;
+  border: none;
+  position: relative;
+  top: 190px;
+  left: 200px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  animation: pop 0.5s ease-in-out;
 }
 
 @keyframes pop {

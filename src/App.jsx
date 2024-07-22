@@ -19,14 +19,18 @@ function App() {
   const [deck, setDeck] = useState(generateInitialDeck());
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDefeatModalOpen, setIsDefeatModalOpen] = useState(false);
+  const [isVictoryModalOpen, setIsVictoryModalOpen] = useState(false);
   const cardRefs = useRef([]);
 
   // Ensure cardRefs.current is an array
   cardRefs.current = [];
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openDefeatModal = () => setIsDefeatModalOpen(true);
+  const closeDefeatModal = () => setIsDefeatModalOpen(false);
+
+  const openVictoryModal = () => setIsVictoryModalOpen(true);
+  const closeVictoryModal = () => setIsVictoryModalOpen(false);
 
   function generateInitialDeck() {
     const cards = [];
@@ -69,15 +73,28 @@ function App() {
     "src/assets/Audio/Defeat (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
   );
 
+  const playVictorySoundEffect = useSoundEffect(
+    "src/assets/Audio/Victory! (Classic League of Legends Announcer) - Sound Effect for editing.mp3"
+  );
+
   function handleCardClick(isClicked) {
     if (isClicked === true) {
-      openModal();
+      // Loser
+      openDefeatModal();
       setTimeout(() => {
         playDefeatSoundEffect();
       }, 250);
 
       setGameOver(true);
-    } else {
+    } else if(score === 4){
+      // Winner
+      openVictoryModal();
+      setTimeout(() => {
+        playVictorySoundEffect();
+      }, 250);
+      setGameOver(true);
+    }
+     else {
       setScore(score + 1);
       playCardFlipSoundEffect();
       flipHalfwayAndShuffle();
@@ -145,8 +162,16 @@ function App() {
           loop={true}
         />
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <button onClick={closeModal}>
+      <Modal isOpen={isDefeatModalOpen} onClose={closeDefeatModal} className={'defeat'}>
+        <button onClick={closeDefeatModal}>
+          <img
+            src="src/assets/img/leagueVictoryButton.png"
+            alt="League defeat screen continue button"
+          />
+        </button>
+      </Modal>
+      <Modal isOpen={isVictoryModalOpen} onClose={closeVictoryModal} className={'victory'}>
+        <button onClick={closeVictoryModal}>
           <img
             src="src/assets/img/leagueVictoryButton.png"
             alt="League defeat screen continue button"
