@@ -35,7 +35,7 @@
     -1px 1px 0 #c89b3c;
 }
 .title img {
-  height: 75%;
+  height: 100%;
 }
 .list {
   list-style: none; /* Remove default list styling */
@@ -58,4 +58,33 @@
 
 .link:hover {
   text-decoration: underline; /* Add underline on hover */
+}
+
+/* motion css */
+
+/* .icon, 
+.titleGame,
+.continueButton,
+.soundButton {
+  display: contents;
+} */
+
+.icon {
+  height: 70%;
+  /* width: 400px;
+  height: 400px; */
+}
+
+.titleGame {
+  margin: 20px 0;
+}
+
+.continueButton,
+.soundButton {
+  /* margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem; */
+  margin: 20px;
+  background-color: transparent;
+  border: none;
 }
