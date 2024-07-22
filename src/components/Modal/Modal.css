@@ -15,11 +15,12 @@
 /* Modal content */
 .modal-content {
   color: black;
-  background: url("src/assets/defeat.gif") no-repeat;
+  background: url("src/assets/img/defeat.gif") no-repeat;
   background-size: contain;
   padding: 20px;
+  border: 2px solid black;
   border-radius: 10px;
-  height: 286px;
+  height: 273px;
   width: 498px;
   max-width: 90%;
   position: relative;

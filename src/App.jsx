@@ -7,7 +7,7 @@ import Card from "./components/Card";
 import ScoreBoard from "./components/ScoreBoard";
 import VideoBackground from "./components/VideoBackground";
 import Modal from "./components/Modal";
-import AudioPlayer from "./components/AudioPlayer";
+// import AudioPlayer from "./components/AudioPlayer";
 import "./App.css";
 
 function getRandomInt(max) {
@@ -129,15 +129,15 @@ function App() {
         </div>
       </div>
       <div className="footer-container">
-        <AudioPlayer
+        {/* <AudioPlayer
           src="src\assets\Audio\Updated Summoner's Rift - Complete Soundtrack.mp3"
           loop={true}
-        />
+        /> */}
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <button onClick={closeModal}>
           <img
-            src="src/assets/leagueVictoryButton.png"
+            src="src/assets/img/leagueVictoryButton.png"
             alt="League defeat screen continue button"
           />
         </button>

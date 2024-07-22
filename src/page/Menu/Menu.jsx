@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Menu.module.css"; // Import CSS module
 import VideoBackground from "../../components/VideoBackground";
-import AudioPlayer from "../../components/AudioPlayer";
+// import AudioPlayer from "../../components/AudioPlayer";
 
 const Menu = () => {
   return (
@@ -23,10 +23,10 @@ const Menu = () => {
           </li>
         </ul>
         <div className="footer-container">
-          <AudioPlayer
+          {/* <AudioPlayer
             src="src\assets\Audio\Ignite (ft. Zedd)  Worlds 2016 - League of Legends.mp3"
             loop={true}
-          />
+          /> */}
         </div>
       </div>
     </div>
