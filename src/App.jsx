@@ -119,7 +119,6 @@ function App() {
     }
   }, [gameOver]);
 
-  console.log(deck);
   return (
     <div className="container">
       <VideoBackground link="./assets/background/zaun-arcane-desktop-wallpaperwaifu-com.mp4" />
