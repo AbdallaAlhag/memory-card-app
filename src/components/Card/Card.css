@@ -63,7 +63,7 @@
   bottom: -365px;
   height: 390px;
   width: 200px;
-  background: url("/assets/img/cardBackSide.png");
+  background: url("./assets/img/cardBackSide.png");
   background-size: 200px 390px;
   background-repeat: no-repeat;
   transform: rotateY(180deg);
