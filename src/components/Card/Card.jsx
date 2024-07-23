@@ -6,8 +6,7 @@ import { useState } from "react";
 import _ from "lodash";
 import "./Card.css";
 import Tilt from "react-parallax-tilt";
-import { motion,useAnimation  } from "framer-motion";
-
+import { motion, useAnimation } from "framer-motion";
 
 // API method but using
 import axios from "axios";
@@ -15,13 +14,13 @@ import { useEffect, forwardRef, useImperativeHandle } from "react";
 
 const Card = forwardRef((props, ref) => {
   const { content, onClick } = props;
-  
+
   const [isClicked, setIsClicked] = useState(false);
   const [champions, setChampions] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const controls = useAnimation(); // Animation controls
-  
+
   useImperativeHandle(ref, () => ({
     async flipHalfway() {
       await controls.start({ rotateY: 180, transition: { duration: 1 } });
@@ -30,14 +29,13 @@ const Card = forwardRef((props, ref) => {
       await controls.start({ rotateY: 0, transition: { duration: 1 } });
     },
   }));
-  
-  
+
   // const [isFlipped, setIsFlipped] = useState(false);
-  
+
   // const handleFlip = () => {
   //   setIsFlipped(!isFlipped);
   // };
-  
+
   useEffect(() => {
     const fetchChampions = async () => {
       setIsLoading(true);
@@ -57,51 +55,48 @@ const Card = forwardRef((props, ref) => {
     };
     fetchChampions();
   }, []);
-  
+
   const handleClick = () => {
     onClick(isClicked);
     setIsClicked(true);
   };
-  
+
   // Ensure content is a valid index
   const currentChampion =
-  Array.isArray(champions) && champions[content] ? champions[content] : null;
-  
+    Array.isArray(champions) && champions[content] ? champions[content] : null;
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  
+
   if (error) {
     return <div>Something went wrong. Please try again</div>;
   }
-  
+
   return (
     <Tilt>
       {/* <div className="card-container" onClick={handleFlip}> */}
       <div className="card-container">
-        <motion.div
-          className="card-flip"
-          animate={controls}
-          >
+        <motion.div className="card-flip" animate={controls}>
           <div className="card-front">
             <button className="card-button" onClick={handleClick}>
               <img
                 className="card-button-img"
                 src={
                   currentChampion && currentChampion.id
-                  ? `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${currentChampion.id}_0.jpg`
-                  : ""
+                    ? `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${currentChampion.id}_0.jpg`
+                    : ""
                 }
                 alt={currentChampion ? currentChampion.id : "Champion"}
                 width="100"
                 loading="lazy"
-                />
+              />
               <p>{currentChampion ? currentChampion.id : "ID not available"}</p>
               <img
                 className="border"
-                src="src/assets/img/leagueBorder.png"
+                src="/assets/img/leagueBorder.png"
                 alt="league of legends border"
-                />
+              />
             </button>
           </div>
           <div className="card-back"></div>

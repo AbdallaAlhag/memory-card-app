@@ -6,7 +6,7 @@ const VideoBackground = ({ link }) => {
     <div className="video-background-wrapper">
       <video className="video-background" autoPlay muted loop>
         <source
-          // src="{src/assets/background/3leagueBackground.mp4}"
+          // src="{/assets/background/3leagueBackground.mp4}"
           src={link}
           type="video/mp4"
         />
