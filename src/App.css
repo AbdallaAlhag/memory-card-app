@@ -1,13 +1,13 @@
 @font-face {
   font-family: "BeaufortforLOL-Bold";
-  src: url("./assets/fonts/BeaufortforLOL-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/BeaufortforLOL-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SpiegelSans-Regular";
-  src: url("./assets/fonts/SpiegelSans-5Regular_TRIAL.woff2") format("woff2");
+  src: url("/assets/fonts/SpiegelSans-5Regular_TRIAL.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
