@@ -27,7 +27,7 @@
 /* Modal content */
 .modal-content.defeat {
   color: black;
-  background: url("./assets/img/defeat.gif") no-repeat;
+  background: url("/assets/img/defeat.gif") no-repeat;
   background-size: contain;
   padding: 20px;
   border: 2px solid black;
@@ -40,7 +40,7 @@
 
 .modal-content.victory {
   color: black;
-  background: url("./assets/img/Victory-ezgif.com-webp-to-gif-converter.gif")
+  background: url("/assets/img/Victory-ezgif.com-webp-to-gif-converter.gif")
     no-repeat;
   background-size: fill;
   padding: 20px;
